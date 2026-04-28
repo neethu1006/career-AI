@@ -1,0 +1,164 @@
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#headline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #111;
+}
+
+#headline {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+.headline-shrink {
+    animation: shrinkMove 1.5s forwards, floatHeadline 2.5s 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes floatHeadline {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-12px); }
+}
+
+@keyframes shrinkMove {
+    0% {
+        font-size: 3rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        font-size: 1.5rem;
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 100px;
+    width: 100vw;
+    z-index: 1;
+}
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100vw;
+    padding-top: 100px;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+
+
+textarea, input {
+    width: 100%;
+    max-width: 500px;
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 10px 0 20px 0;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border 0.2s;
+}
+textarea {
+    min-height: 220px;
+    resize: vertical;
+}
+textarea:focus, input:focus {
+    border: 1.5px solid #0ff;
+}
+
+.main-btn {
+    background: linear-gradient(90deg, #0ff, #08f);
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #0ff2;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+.main-btn:active {
+    transform: scale(0.97);
+}
+.main-btn:disabled {
+    background: #333;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.resume-analyzer-box, .interview-coach-box {
+    background: #181828;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #0ff3;
+    padding: 40px 32px 32px 32px;
+    margin-top: 30px;
+    min-width: 340px;
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s;
+}
+
+pre {
+    background: #111;
+    color: #fff;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+}
+
+h2 {
+    margin-bottom: 18px;
+    color: #0ff;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
